@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="main-image">
+    <div class="main-image-content">
+        made with love
+        <p>for you</p>
+    </div>
+</div>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav nav-menu">
+            <li class="active"><a href="#">LUNCH</a></li>
+            <li><a href="#">BREKFAST</a></li>
+            <li><a href="#">DRINSKS</a></li>
+            <li><a href="#">DESSERTS</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="col-md-4 col-md-push-2">
+    <img src="~/Content/images/menu/u13000.png" />
+</div>
+<div class="col-md-8">
+    <h3 class="menu-header">
+        Mini chilli pretzels
+    </h3>
+    <p>
+        These freshly-baked savouries beat anything out of a packet.
+    </p>
+    <button class="btn" onclick="@("window.location.href='" + @Url.Action("Menu", "Home") + "'");">ADD TO CART</button>
+</div>
+<div class="col-md-4 col-md-push-2">
+    <img src="~/Content/images/menu/u13000.png" />
+</div>
+<div class="col-md-8">
+    <h3 class="menu-header">
+        Chicken wing
+    </h3>
+    <p>
+        It’s all about flavour and fun, fun, fun. Toss fried chicken with a finger-licking sauce spiked with chilli and fresh ginger.
+    </p>
+    <button class="btn" onclick="@("window.location.href='" + @Url.Action("Menu", "Home") + "'");">ADD TO CART</button>
+</div>
+<div class="col-md-4 col-md-push-2">
+    <img src="~/Content/images/menu/u13000.png" />
+</div>
+<div class="col-md-8">
+    <h3 class="menu-header">
+        French onion sou
+    </h3>
+    <p>
+        French onion soup is deeply savoury and hearty - and cheesy croutons make it extra special!
+    </p>
+    <button class="btn" onclick="@("window.location.href='" + @Url.Action("Menu", "Home") + "'");">ADD TO CART</button>
+</div>

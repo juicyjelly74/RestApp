@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="main-image">
+    <div class="main-image-content">
+        made with love
+        <p>for you</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2 class="main-page-header">
+            m e n u
+        </h2>
+        <p class="main-page-preheader">
+            Delicious and beautiful.
+        </p>
+        <p>
+            In our menu you will find a great variety of delicious food that will satisfy the needs and tastes of everyone. We strive to source the highest quality ingredients for all of our dishes thereby enhancing the quality of services
+        </p>
+        <p>
+            <button class="btn btn-default" onclick="@("window.location.href='" + @Url.Action("Menu", "Home") + "'");">Learn more &raquo;</button>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2 class="main-page-header">
+            r e s t a u r a n t s
+        </h2>
+        <p class="main-page-preheader">
+            We create delicious memories.
+        </p>
+        <p>
+            Fascinated people, comfy places and best food!
+        </p>
+        <p>
+            <button class="btn btn-default" onclick="@("window.location.href='" + @Url.Action("Restaurants", "Home") + "'");">Learn more &raquo;</button>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2 class="main-page-header">
+            l u n c h
+        </h2>
+
+        <p class="main-page-preheader">
+            Get meal of the day
+        </p>
+        <p>
+            Try our exclusive every day special lunch set!
+        </p>
+        <p>
+            <button class="btn btn-default" onclick="@("window.location.href='" + @Url.Action("Menu", "Home") + "'");">Learn more &raquo;</button>
+        </p>
+    </div>
+
+</div>

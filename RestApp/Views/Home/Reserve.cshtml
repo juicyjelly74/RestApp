@@ -1,0 +1,190 @@
+﻿@{
+    /**/
+
+    /**/
+
+    ViewBag.Title = "Home Page";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.rawgit.com/atatanasov/gijgo/master/dist/combined/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://cdn.rawgit.com/atatanasov/gijgo/master/dist/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="dist/bootstrap-clockpicker.min.css">
+<script type="text/javascript" src="dist/bootstrap-clockpicker.min.js"></script>
+
+<div class="main-image">
+    <div class="main-image-content">
+        reservation
+        <p>book your table at our restaurant now!</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-md-4">
+        <img src="~/Content/images/menu/u130.png" />
+    </div>
+    <div class="col-md-6">
+        <h3 class="menu-header">
+            O n l i n e
+        </h3>
+        <p class="main-page-preheader">
+            booking, It's easy as an apple pie
+        </p>
+
+        <p>
+            When you finalize a reservation with OpenTable they will send you a confirmation email immediately.  We will also call you on the date of your reservation to confirm your table.
+        </p>
+    </div>
+
+</div>
+<div class="container">
+    <div class="col-md-4">
+        <div class="your-class">
+            <div class="date-picker" data-keyboard="true">
+                <div class="date-container pull-left">
+                    <h4 class="date">December 23th</h4>
+                </div>
+                <span data-toggle="datepicker" data-type="subtract" class="fa fa-angle-left"></span>
+                <span data-toggle="datepicker" data-type="add" class="fa fa-angle-right"></span>
+                <div class="input-group input-datepicker">
+                    <input type="text" class="form-control" data-format="YYYY/MM/DD" placeholder="YYYY/MM/DD">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                </div>
+                <span data-toggle="calendar" class="fa fa-calendar"></span>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="your-class">
+
+            <div class="input-group clockpicker">
+                <input type="text" class="form-control" value="09:30">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-time left-offset"></span>
+                </span>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="your-class">
+            <div class="input-group spinner">
+                <input type="text" class="form-control" value="2" min="1" max="5">
+                <div class="input-group-btn-vertical">
+                    <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                    <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="contact">
+        </div>
+    </div>
+    <div class="col-md-4 ">
+        <div class="reserve">
+            <button class="btn" onclick="@("window.location.href='" + @Url.Action("ReservationCompleted", "Home") + "'");">RESERVE</button>
+        </div>
+    </div>
+
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+<script>
+    (function ($) {
+        $('.spinner .btn:first-of-type').on('click', function () {
+            if ($('.spinner input').attr('max') == undefined || parseInt($('.spinner input').val(), 10) < parseInt($('.spinner input').attr('max'))) {
+
+                $('.spinner input').val(parseInt($('.spinner input').val(), 10) + 1);
+            }
+        });
+        $('.spinner .btn:last-of-type').on('click', function () {
+            if ($('.spinner input').attr('min') == undefined || parseInt($('.spinner input').val(), 10) > parseInt($('.spinner input').attr('min'))) {
+
+                $('.spinner input').val(parseInt($('.spinner input').val(), 10) - 1);
+            }
+        });
+    })(jQuery);
+</script>
+<script>
+    $(document).ready(function () {
+
+        $(window).on('focus', function (event) {
+            $('.show-focus-status > .alert-danger').addClass('hidden');
+            $('.show-focus-status > .alert-success').removeClass('hidden');
+        }).on('blur', function (event) {
+            $('.show-focus-status > .alert-success').addClass('hidden');
+            $('.show-focus-status > .alert-danger').removeClass('hidden');
+        });
+
+        $('.date-picker').each(function () {
+            var $datepicker = $(this),
+                cur_date = ($datepicker.data('date') ? moment($datepicker.data('date'), "YYYY/MM/DD") : moment()),
+                format = {
+                    "weekday": ($datepicker.find('.weekday').data('format') ? $datepicker.find('.weekday').data('format') : "dddd"),
+                    "date": ($datepicker.find('.date').data('format') ? $datepicker.find('.date').data('format') : "MMMM Do"),
+                    "year": ($datepicker.find('.year').data('year') ? $datepicker.find('.weekday').data('format') : "YYYY")
+                };
+
+            function updateDisplay(cur_date) {
+                $datepicker.find('.date-container > .weekday').text(cur_date.format(format.weekday));
+                $datepicker.find('.date-container > .date').text(cur_date.format(format.date));
+                $datepicker.find('.date-container > .year').text(cur_date.format(format.year));
+                $datepicker.data('date', cur_date.format('YYYY/MM/DD'));
+                $datepicker.find('.input-datepicker').removeClass('show-input');
+            }
+
+            updateDisplay(cur_date);
+
+            $datepicker.on('click', '[data-toggle="calendar"]', function (event) {
+                event.preventDefault();
+                $datepicker.find('.input-datepicker').toggleClass('show-input');
+            });
+
+            $datepicker.on('click', '.input-datepicker > .input-group-btn > button', function (event) {
+                event.preventDefault();
+                var $input = $(this).closest('.input-datepicker').find('input'),
+                    date_format = ($input.data('format') ? $input.data('format') : "YYYY/MM/DD");
+                if (moment($input.val(), date_format).isValid()) {
+                    updateDisplay(moment($input.val(), date_format));
+                } else {
+                    alert('Invalid Date');
+                }
+            });
+
+            $datepicker.on('click', '[data-toggle="datepicker"]', function (event) {
+                event.preventDefault();
+
+                var cur_date = moment($(this).closest('.date-picker').data('date'), "YYYY/MM/DD"),
+                    date_type = ($datepicker.data('type') ? $datepicker.data('type') : "days"),
+                    type = ($(this).data('type') ? $(this).data('type') : "add"),
+                    amt = ($(this).data('amt') ? $(this).data('amt') : 1);
+
+                if (type == "add") {
+                    cur_date = cur_date.add(date_type, amt);
+                } else if (type == "subtract") {
+                    cur_date = cur_date.subtract(date_type, amt);
+                }
+
+                updateDisplay(cur_date);
+            });
+
+            if ($datepicker.data('keyboard') == true) {
+                $(window).on('keydown', function (event) {
+                    if (event.which == 37) {
+                        $datepicker.find('span:eq(0)').trigger('click');
+                    } else if (event.which == 39) {
+                        $datepicker.find('span:eq(1)').trigger('click');
+                    }
+                });
+            }
+
+        });
+    });
+</script>
+<script type="text/javascript">
+    $('.clockpicker').clockpicker();
+</script>

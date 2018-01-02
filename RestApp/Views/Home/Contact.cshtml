@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div class="main-image">
+    <div class="main-image-content">
+        happy
+        <p>to hear from you, contact us</p>
+    </div>
+</div>
+<div class="container">
+    <div class="col-md-8">
+        <h2 class="main-page-header">
+            h a p p y
+        </h2>
+        <p class="main-page-preheader">
+            to hear from you, contact us
+        </p>
+        <p>
+            Please feel free to contact us with any questions or to make reservations. If no one is available to take your call, please leave a message. We will contact you as soon as possible.
+        </p>
+    </div>
+    <div class="col-md-8">
+        <div class="your-class">
+            <label for="usr">First name: </label>
+            <input type="text" class="custom-form-input contact" width="40">
+            <label for="usr">Last name: </label>
+            <input type="text" class="custom-form-input contact" width="40">
+        </div>
+        <div class="your-class">
+            <label for="usr">Email address: </label>
+            <input type="text" class="custom-form-input contact" width="50">
+            <label for="usr">Subject: </label>
+            <div class="dropdown">
+                <button class="btn contact dropdown-toggle" type="button" data-toggle="dropdown">
+                    Choose message subject
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu contact">
+                    <li><a href="#">Restaurants</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Other</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="your-class">
+            <label for="usr">Message:</label>
+            <input type="text" class="custom-form-input contact" width="50">
+            <button class="btn" onclick="@("window.location.href='" + @Url.Action("Thank", "Home") + "'");">SEND</button>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <strong>CONTACT DETAILS:</strong>
+
+        <address>
+            LESI UKRAINKI STREET 4-1
+            <br />
+            MINSK, BELARUS 220020<br />
+            <abbr title="Phone">Phone:</abbr>
+            80291840337
+        </address>
+
+        <address>
+            <strong>EMAIL:</strong>   <a href="mailto:RESERVATION@CREME.COM">RESERVATION@CREME.COM</a><br />
+        </address>
+    </div>
+</div>
+
