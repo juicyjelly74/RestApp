@@ -154,6 +154,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\RestaurantUsersEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantUsersEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RestaurantUsersEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RestaurantUsersEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantUsersEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Restaurant_Users.cs">
+      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -210,10 +228,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\RestaurantUsersEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RestaurantUsersEntities.edmx</DependentUpon>
+      <LastGenOutput>RestaurantUsersEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\RestaurantUsersEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RestaurantUsersEntities.edmx</DependentUpon>
+      <LastGenOutput>RestaurantUsersEntities.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\RestaurantUsersEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RestaurantUsersEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\RestaurantUsersEntities.edmx.diagram">
+      <DependentUpon>RestaurantUsersEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -246,12 +281,13 @@
     <Content Include="Views\Home\Reserve.cshtml" />
     <Content Include="Views\Home\Thank.cshtml" />
     <Content Include="Views\Home\ReservationCompleted.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\desserts\" />
     <Folder Include="Content\images\lunch\" />
     <Folder Include="Content\images\thank_you_\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

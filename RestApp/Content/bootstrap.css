@@ -7088,3 +7088,9 @@ td.visible-print {
 .left-offset {
     margin-left: 20px;
 }
+.cart {
+    color: black;
+}
+.navbar-default .navbar-nav > li > a > cart{
+    color: #000;
+}
