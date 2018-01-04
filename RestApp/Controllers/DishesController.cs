@@ -25,6 +25,65 @@ namespace RestApp.Controllers
                .FirstOrDefault(d => d.ID == id);
            return File(dish.Image, "image/png");
         }
+        public ActionResult Index(string sortOrder, string currentFilter, string searchProducerString,
+string searchModelString, int? page)
+        {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Price" ? "price_desc" : "Price";
+            List<SelectListItem> carModels = new List<SelectListItem>();
+
+            foreach (var model in db.Models)
+            {
+                var p = db.Producers.Where(c => c.IdProducer == model.IdModelProducer);
+                foreach (var i in p)
+                {
+                    carModels.Add(new SelectListItem() { Text = model.NameModel + i.NameProducer });
+                }
+
+            }
+            ViewBag.CarModels = db.Models;
+
+            ViewBag.ProducerModels = carModels;
+
+
+            var cars = db.Cars.Include(c => c.Models).Include(c => c.Producers);
+            if (searchProducerString != null || searchModelString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchProducerString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchProducerString;
+            if (!String.IsNullOrEmpty(searchProducerString))
+            {
+
+                cars = cars.Where(c => c.Producers.NameProducer.Contains(searchProducerString));
+            }
+
+            if (!String.IsNullOrEmpty(searchModelString))
+            {
+
+                cars = cars.Where(c => c.Models.NameModel.Contains(searchModelString));
+            }
+
+            switch (sortOrder)
+            {
+                case "price_desc":
+                    cars = cars.OrderByDescending(s => s.Price);
+                    break;
+                default:
+                    cars = cars.OrderBy(s => s.Price);
+                    break;
+            }
+
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            return View(cars.ToPagedList(pageNumber, pageSize));
+        }
         // GET: Dishes/Details/5
         public ActionResult Details(int? id)
         {
