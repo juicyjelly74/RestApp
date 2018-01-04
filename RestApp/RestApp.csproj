@@ -47,10 +47,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -150,34 +152,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DishesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\RestaurantUsersEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RestaurantUsersEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RestaurantUsersEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RestaurantUsersEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RestaurantUsersEntities.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Restaurant_Users.cs">
-      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Dish.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\UserDatabase.mdf" />
-    <Content Include="App_Data\UserDatabase_log.ldf">
-      <DependentUpon>UserDatabase.mdf</DependentUpon>
+    <Content Include="App_Data\RestourantDatabase.mdf" />
+    <Content Include="App_Data\RestourantDatabase_log.ldf">
+      <DependentUpon>RestourantDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -191,9 +177,6 @@
     <Content Include="Content\images\contact\u417.png" />
     <Content Include="Content\images\contact\u425.png" />
     <Content Include="Content\images\drinks\u230.png" />
-    <Content Include="Content\images\home\facebook_icon.png" />
-    <Content Include="Content\images\home\instagram_icon.png" />
-    <Content Include="Content\images\home\twitter_icon.png" />
     <Content Include="Content\images\home\u1.png" />
     <Content Include="Content\images\home\u11.png" />
     <Content Include="Content\images\home\u12.png" />
@@ -231,27 +214,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\RestaurantUsersEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RestaurantUsersEntities.edmx</DependentUpon>
-      <LastGenOutput>RestaurantUsersEntities.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\RestaurantUsersEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RestaurantUsersEntities.edmx</DependentUpon>
-      <LastGenOutput>RestaurantUsersEntities.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\RestaurantUsersEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RestaurantUsersEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\RestaurantUsersEntities.edmx.diagram">
-      <DependentUpon>RestaurantUsersEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -271,8 +237,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -284,8 +249,13 @@
     <Content Include="Views\Home\Reserve.cshtml" />
     <Content Include="Views\Home\Thank.cshtml" />
     <Content Include="Views\Home\ReservationCompleted.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Dishes\Create.cshtml" />
+    <Content Include="Views\Dishes\Delete.cshtml" />
+    <Content Include="Views\Dishes\Details.cshtml" />
+    <Content Include="Views\Dishes\Edit.cshtml" />
+    <Content Include="Views\Dishes\Index.cshtml" />
+    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\desserts\" />
@@ -322,7 +292,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49723</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
