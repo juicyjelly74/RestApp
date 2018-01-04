@@ -8,7 +8,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-
+    
 
 </head>
 <body>
@@ -25,39 +25,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        @if (Session["User"] != null)
-                        {
-                            <a href="@Url.Action("Logout", "Home")">
-                                Welcome, @Session["User"].ToString()! 
-                                Logout
-                                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                            </a>
-                        }
-                        else
-                        {
-                            <a href="@Url.Action("Login", "Home")">
-                                Login
-                                <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-                            </a>
-                        }
-                    </li>
-                    <li>
-                        @if (Session["User"] == null)
-                        {
-                            <a href="@Url.Action("Register", "Home")">
-                                Register
-                                <span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>
-                            </a>
-                        }
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
                         <a href="@Url.Action("Cart", "Home")">
-                            <font color="#000" size="3">
-                                CART
-                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                            </font>
+                            Cart
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                         </a>
                     </li>
                 </ul>
@@ -88,7 +58,7 @@
         <footer>
             <strong>Follow us:</strong>
             <ul class="nav navbar-nav navbar-right ">
-
+                
                 <li class="contact">
                     <input type="image" src="~/Content/images/home/u21.png" onclick="@("window.location.href='https://www.facebook.com'");">
                 </li>
