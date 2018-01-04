@@ -191,6 +191,9 @@
     <Content Include="Content\images\contact\u417.png" />
     <Content Include="Content\images\contact\u425.png" />
     <Content Include="Content\images\drinks\u230.png" />
+    <Content Include="Content\images\home\facebook_icon.png" />
+    <Content Include="Content\images\home\instagram_icon.png" />
+    <Content Include="Content\images\home\twitter_icon.png" />
     <Content Include="Content\images\home\u1.png" />
     <Content Include="Content\images\home\u11.png" />
     <Content Include="Content\images\home\u12.png" />
