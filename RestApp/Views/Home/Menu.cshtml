@@ -61,10 +61,17 @@
         </tr>*@
     @foreach (var item in Model)
     {
+<<<<<<< HEAD
         <div class="container">
             <div class="col-md-4 col-md-push-2">
                 <img src="@Url.Action("GetImageDish", new { id =item.ID})" />
             </div>
+=======
+
+        <div class="col-md-4 col-md-push-2" >
+            <img src="@Url.Action("GetImageDish", new { id =item.ID})" />
+        </div>
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
             <div class="col-md-8">
                 <h3 class="menu-header">
                     @Html.DisplayFor(modelItem => item.Name)
@@ -73,6 +80,7 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </p>
                 <p>@Html.DisplayFor(modelItem => item.Price) </p>
+<<<<<<< HEAD
                 @*<button class="btn" onclick="@("window.location.href='" + @Url.Action("Menu", "Home") + "'");">ADD TO CART</button>*@
                 @*<a id="btn_add" href="@Url.Action("AddToCard", "Home",item)" class="btn btn-info btn-lg" style="margin-left:60px">
                     <span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart
@@ -85,6 +93,10 @@
                     @*@Html.ActionLink("ADD TO CART", "AddToCard","Home", new { DishID=item.ID }, null)  // view's controller*@
             </div>
         </div>
+=======
+                <button class="btn" onclick="@("window.location.href='" + @Url.Action("Menu", "Home") + "'");">ADD TO CART</button>
+            </div>
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
             @*<tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
@@ -107,4 +119,8 @@
                         @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                     </td>
                 </tr>*@
+<<<<<<< HEAD
             }
+=======
+    }
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97

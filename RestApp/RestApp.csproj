@@ -152,7 +152,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\CardsController.cs" />
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
     <Compile Include="Controllers\DishesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -162,9 +165,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\Card.cs">
       <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
     </Compile>
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
     <Compile Include="Models\Dish.cs" />
     <Compile Include="Models\Dishes.cs">
       <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
@@ -342,11 +348,14 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Cards\Create.cshtml" />
     <Content Include="Views\Cards\Delete.cshtml" />
     <Content Include="Views\Cards\Details.cshtml" />
     <Content Include="Views\Cards\Edit.cshtml" />
     <Content Include="Views\Cards\Index.cshtml" />
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\desserts\" />

@@ -56,12 +56,21 @@ namespace RestApp.Controllers
             var TypeQry = from d in db.Dishes
                           orderby d.Category
                           select d.Category;
+<<<<<<< HEAD
 
             TypeL.AddRange(TypeQry.Distinct());
             ViewBag.dishType = new SelectList(TypeL);
             var dishes = from d in db.Dishes
                          select d;
 
+=======
+
+            TypeL.AddRange(TypeQry.Distinct());
+            ViewBag.dishType = new SelectList(TypeL);
+            var dishes = from d in db.Dishes
+                         select d;
+
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
             if (!String.IsNullOrEmpty(searchString))
             {
                 dishes = dishes.Where(s => s.Name.Contains(searchString) || s.Description.Contains(searchString));
@@ -78,6 +87,7 @@ namespace RestApp.Controllers
             if (dish.Image != null) return File(dish.Image, "image/png");
             return View();
         }
+<<<<<<< HEAD
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult AddToCard(/*[Bind(Include = "Id,DishID,UserID,Status,Ammount")] Card card*/ int Dishid)
@@ -100,6 +110,8 @@ namespace RestApp.Controllers
            // ViewBag.UserID = new SelectList(db.Restaurant_Users, "Id", "Username", card.UserID);
             return RedirectToAction("Menu");
         }
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
         public ActionResult Restaurants(string searchString)
         {
             ViewBag.Message = "Restaurants.";

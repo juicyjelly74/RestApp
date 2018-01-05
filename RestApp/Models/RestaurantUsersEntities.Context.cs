@@ -32,6 +32,9 @@ namespace RestApp.Models
         public virtual DbSet<Reservation> Reservation { get; set; }
         public virtual DbSet<Subject> Subject { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+<<<<<<< HEAD
         public virtual DbSet<Card> Card { get; set; }
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
     }
 }
