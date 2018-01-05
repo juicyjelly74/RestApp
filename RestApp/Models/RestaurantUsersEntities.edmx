@@ -5,6 +5,10 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="UserDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         <EntityType Name="Card">
           <Key>
             <PropertyRef Name="Id" />
@@ -15,6 +19,11 @@
           <Property Name="Status" Type="bit" Nullable="false" />
           <Property Name="Ammount" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         <EntityType Name="Dishes">
           <Key>
             <PropertyRef Name="ID" />
@@ -96,6 +105,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         <Association Name="FK_DishID_Card">
           <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
           <End Role="Card" Type="Self.Card" Multiplicity="*" />
@@ -108,6 +121,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         <Association Name="FK_RestID">
           <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="0..1" />
           <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
@@ -144,6 +162,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         <Association Name="FK_UserID_Card">
           <End Role="Restaurant_Users" Type="Self.Restaurant_Users" Multiplicity="1" />
           <End Role="Card" Type="Self.Card" Multiplicity="*" />
@@ -158,6 +180,12 @@
         </Association>
         <EntityContainer Name="UserDatabaseModelStoreContainer">
           <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
+<<<<<<< HEAD
+=======
+=======
+        <EntityContainer Name="UserDatabaseModelStoreContainer">
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
           <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
@@ -169,10 +197,19 @@
             <End Role="Dishes" EntitySet="Dishes" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
           <AssociationSet Name="FK_DishID_Card" Association="Self.FK_DishID_Card">
             <End Role="Dishes" EntitySet="Dishes" />
             <End Role="Card" EntitySet="Card" />
           </AssociationSet>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
           <AssociationSet Name="FK_RestID" Association="Self.FK_RestID">
             <End Role="Restaurant" EntitySet="Restaurant" />
             <End Role="Reservation" EntitySet="Reservation" />
@@ -185,10 +222,19 @@
             <End Role="Restaurant_Users" EntitySet="Restaurant_Users" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
           <AssociationSet Name="FK_UserID_Card" Association="Self.FK_UserID_Card">
             <End Role="Restaurant_Users" EntitySet="Restaurant_Users" />
             <End Role="Card" EntitySet="Card" />
           </AssociationSet>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -204,7 +250,14 @@
           <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="UserDatabaseModel.FK_UserID" FromRole="Restaurant_Users" ToRole="Order" />
+<<<<<<< HEAD
           <NavigationProperty Name="Card" Relationship="UserDatabaseModel.FK_UserID_Card" FromRole="Restaurant_Users" ToRole="Card" />
+=======
+<<<<<<< HEAD
+          <NavigationProperty Name="Card" Relationship="UserDatabaseModel.FK_UserID_Card" FromRole="Restaurant_Users" ToRole="Card" />
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         </EntityType>
         <EntityContainer Name="RestaurantUserDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Restaurant_Users" EntityType="Self.Restaurant_Users" />
@@ -230,6 +283,10 @@
             <End Role="Restaurant_Users" EntitySet="Restaurant_Users" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
           <EntitySet Name="Card" EntityType="UserDatabaseModel.Card" />
           <AssociationSet Name="FK_DishID_Card" Association="UserDatabaseModel.FK_DishID_Card">
             <End Role="Dishes" EntitySet="Dishes" />
@@ -239,6 +296,11 @@
             <End Role="Restaurant_Users" EntitySet="Restaurant_Users" />
             <End Role="Card" EntitySet="Card" />
           </AssociationSet>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         </EntityContainer>
         <EntityType Name="Dishes">
           <Key>
@@ -251,7 +313,14 @@
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Order" Relationship="UserDatabaseModel.FK_DishID" FromRole="Dishes" ToRole="Order" />
+<<<<<<< HEAD
           <NavigationProperty Name="Card" Relationship="UserDatabaseModel.FK_DishID_Card" FromRole="Dishes" ToRole="Card" />
+=======
+<<<<<<< HEAD
+          <NavigationProperty Name="Card" Relationship="UserDatabaseModel.FK_DishID_Card" FromRole="Dishes" ToRole="Card" />
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         </EntityType>
         <EntityType Name="Restaurant">
           <Key>
@@ -355,6 +424,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         <EntityType Name="Card">
           <Key>
             <PropertyRef Name="Id" />
@@ -391,6 +464,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -469,6 +547,10 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -480,6 +562,11 @@
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="DishID" ColumnName="DishID" />
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

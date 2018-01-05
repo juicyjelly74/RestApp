@@ -56,12 +56,28 @@ namespace RestApp.Controllers
             var TypeQry = from d in db.Dishes
                           orderby d.Category
                           select d.Category;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
+
+            TypeL.AddRange(TypeQry.Distinct());
+            ViewBag.dishType = new SelectList(TypeL);
+            var dishes = from d in db.Dishes
+                         select d;
+<<<<<<< HEAD
+
+=======
+
+=======
 
             TypeL.AddRange(TypeQry.Distinct());
             ViewBag.dishType = new SelectList(TypeL);
             var dishes = from d in db.Dishes
                          select d;
 
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
             if (!String.IsNullOrEmpty(searchString))
             {
                 dishes = dishes.Where(s => s.Name.Contains(searchString) || s.Description.Contains(searchString));
@@ -78,6 +94,10 @@ namespace RestApp.Controllers
             if (dish.Image != null) return File(dish.Image, "image/png");
             return View();
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult AddToCard(/*[Bind(Include = "Id,DishID,UserID,Status,Ammount")] Card card*/ int Dishid)
@@ -88,7 +108,11 @@ namespace RestApp.Controllers
             card.DishID = Dishid;
             card.Ammount = 1;
             card.Status = false;
+<<<<<<< HEAD
             if (Session["UserID"] == null) return RedirectToAction("Login");
+=======
+            if (Session["UserID"] == null) return RedirectToAction("Register");
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
             card.UserID = (int)Session["UserID"];
                
             db.Card.Add(card);
@@ -100,6 +124,11 @@ namespace RestApp.Controllers
            // ViewBag.UserID = new SelectList(db.Restaurant_Users, "Id", "Username", card.UserID);
             return RedirectToAction("Menu");
         }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         public ActionResult Restaurants(string searchString)
         {
             ViewBag.Message = "Restaurants.";
@@ -126,7 +155,11 @@ namespace RestApp.Controllers
             if (Session["UserID"] != null)
                 usid = (int)Session["UserID"];
             else usid = 0;
+<<<<<<< HEAD
                 cards = cards.Where(s => s.UserID == usid && s.Status == false);
+=======
+                cards = cards.Where(s => s.UserID == usid);
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
             decimal? sub = 0;
             foreach (Card c in cards)
             {
@@ -161,7 +194,11 @@ namespace RestApp.Controllers
             Card card = db.Card.Find(idD);
             db.Card.Remove(card);
             db.SaveChanges();
+<<<<<<< HEAD
             return RedirectToAction("Cart");
+=======
+            return RedirectToAction("Card");
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         }
         public ActionResult Reserve()
         {

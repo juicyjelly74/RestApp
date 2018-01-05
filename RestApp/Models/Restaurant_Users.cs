@@ -18,7 +18,14 @@ namespace RestApp.Models
         public Restaurant_Users()
         {
             this.Order = new HashSet<Order>();
+<<<<<<< HEAD
             this.Card = new HashSet<Card>();
+=======
+<<<<<<< HEAD
+            this.Card = new HashSet<Card>();
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
         }
     
         public int Id { get; set; }
@@ -29,7 +36,15 @@ namespace RestApp.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
+<<<<<<< HEAD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Card> Card { get; set; }
+=======
+<<<<<<< HEAD
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Card> Card { get; set; }
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
     }
 }

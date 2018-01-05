@@ -21,6 +21,7 @@
 </nav>*@
 
 
+<<<<<<< HEAD
 <div class="container">
     <div class="container-fluid your-class custom-drop-header">
         @using (Html.BeginForm("Menu", "Home", FormMethod.Get))
@@ -42,6 +43,27 @@
     </div>
 
     <hr />
+=======
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        @using (Html.BeginForm("Menu", "Home", FormMethod.Get))
+        {
+            <div>
+                Type: @Html.DropDownList("dishType", "All")
+                
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <div class="form-control">@Html.TextBox("SearchString") </div>
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        }
+    </div>
+</nav>
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
     @*<table class="table">
         <tr>
             <th>
@@ -63,10 +85,24 @@
         </tr>*@
     @foreach (var item in Model)
     {
+<<<<<<< HEAD
         <div class="container min-div">
             <div class="col-md-4 col-md-push-2">
                 <img src="@Url.Action("GetImageDish", new { id =item.ID})" />
             </div>
+=======
+<<<<<<< HEAD
+        <div class="container">
+            <div class="col-md-4 col-md-push-2">
+                <img src="@Url.Action("GetImageDish", new { id =item.ID})" />
+            </div>
+=======
+
+        <div class="col-md-4 col-md-push-2" >
+            <img src="@Url.Action("GetImageDish", new { id =item.ID})" />
+        </div>
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
             <div class="col-md-8">
                 <h3 class="menu-header">
                     @Html.DisplayFor(modelItem => item.Name)
@@ -74,16 +110,26 @@
                 <p>
                     @Html.DisplayFor(modelItem => item.Description)
                 </p>
+<<<<<<< HEAD
                 <p>@Html.DisplayFor(modelItem => item.Price) $</p>
                 @*<button class="btn" onclick="@("window.location.href='" + @Url.Action("Menu", "Home") + "'");">ADD TO CART</button>*@
                 @*<a id="btn_add" href="@Url.Action("AddToCard", "Home",item)" class="btn btn-info btn-lg" style="margin-left:60px">
                         <span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart
                     </a>*@
+=======
+                <p>@Html.DisplayFor(modelItem => item.Price) </p>
+<<<<<<< HEAD
+                @*<button class="btn" onclick="@("window.location.href='" + @Url.Action("Menu", "Home") + "'");">ADD TO CART</button>*@
+                @*<a id="btn_add" href="@Url.Action("AddToCard", "Home",item)" class="btn btn-info btn-lg" style="margin-left:60px">
+                    <span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart
+                </a>*@
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
                 <p class="btn">
                     <span class="glyphicon glyphicon-shopping-cart"></span>  @Html.ActionLink("ADD TO CART", "AddToCard",
                                     "Home", new { Dishid = item.ID }, "")
                 </p>
 
+<<<<<<< HEAD
                 @*@Html.ActionLink("ADD TO CART", "AddToCard","Home", new { DishID=item.ID }, null)  // view's controller*@
             </div>
         </div>
@@ -111,3 +157,39 @@
             </tr>*@
     }
 </div>
+=======
+                    @*@Html.ActionLink("ADD TO CART", "AddToCard","Home", new { DishID=item.ID }, null)  // view's controller*@
+            </div>
+        </div>
+=======
+                <button class="btn" onclick="@("window.location.href='" + @Url.Action("Menu", "Home") + "'");">ADD TO CART</button>
+            </div>
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+            @*<tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <img src="@Url.Action("GetImage", new { id =item.ID})" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>*@
+<<<<<<< HEAD
+            }
+=======
+    }
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
