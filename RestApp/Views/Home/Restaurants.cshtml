@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<RestApp.Models.Restaurant>
+@{
     ViewBag.Title = "Home Page";
 }
 <div class="main-image">
@@ -7,45 +8,66 @@
         <p>cool and comfortable</p>
     </div>
 </div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        @using (Html.BeginForm("Restaurants", "Home", FormMethod.Get))
+        {
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <div class="form-control">@Html.TextBox("SearchString") </div>
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+        }
+    </div>
+</nav>
 
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td class="col-md-4 col-md-push-2">
+                <img src="@Url.Action("GetImageRest", new { id =item.Id})" />
+            </td>
+            <td class="col-md-6">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td class="col-md-6">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        </tr>
+    }
+
+</table>*@
+@foreach (var item in Model) {
 <div class="container">
     <div class="col-md-4 col-md-push-2">
-        <img src="~/Content/images/menu/u1300.png" />
+        <img src="@Url.Action("GetImageRest", new { id =item.Id})" />
     </div>
     <div class="col-md-6">
         <h3 class="menu-header">
-            Falcone
+           @Html.DisplayFor(modelItem => item.Name)
         </h3>
         <p>
-            With us you will spend an unforgettable evening, enjoying exquisite dishes of Italian cuisine to the accompaniment of live music.
-            We invite you to get acquainted with the history of the restaurant and our chef Michele Pais.
+            @Html.DisplayFor(modelItem => item.Description)
         </p>
         <button class="btn" onclick="@("window.location.href='" + @Url.Action("Reserve", "Home") + "'");">RESERVE</button>
     </div>
-    <div class="col-md-4 col-md-push-2">
-        <img src="~/Content/images/menu/u1300.png" />
-    </div>
-    <div class="col-md-8">
-        <h3 class="menu-header">
-            Malt & Hops
-        </h3>
-        <p>
-            Where can you feel like a visitor to a real English pub, if not in Malt & Hops? The institution is part of the BARBARIS GROUP network and is in no way inferior to the rest.
-            Worthy music, quality drinks, delicious snacks - are these signs of a real pub?
-        </p>
-        <button class="btn" onclick="@("window.location.href='" + @Url.Action("Reserve", "Home") + "'");">RESERVE</button>
-    </div>
-    <div class="col-md-4 col-md-push-2">
-        <img src="~/Content/images/menu/u1300.png" />
-    </div>
-    <div class="col-md-8">
-        <h3 class="menu-header">
-            TheView
-        </h3>
-        <p>
-            A unique restaurant in the city center will surprise visitors not only with author's cuisine performed by the chef from Europe, but will also open an amazing view of Minsk from a bird's eye view. Exquisite cuisine, chic interior and high level of service will force you to take a fresh look at the Belarusian capital, our native Minsk.
-        </p>
-        <button class="btn" onclick="@("window.location.href='" + @Url.Action("Reserve", "Home") + "'");">RESERVE</button>
-    </div>
-
+    
 </div>
+}

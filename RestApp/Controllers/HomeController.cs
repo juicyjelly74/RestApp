@@ -27,21 +27,69 @@ namespace RestApp.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Contact page.";
-
+            ViewBag.SubjectID = new SelectList(db.Subject, "Id", "Name");
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Contact([Bind(Include = "FirstName,LastName,Email,Message,SubjectID")] Review review)
+        {
+            if (ModelState.IsValid)
+            {
+                db.ReviewSet.Add(review);
+                db.SaveChanges();
+                return RedirectToAction("Thank");
+            }
 
-        public ActionResult Menu()
+            ViewBag.SubjectID = new SelectList(db.Subject, "Id", "Name", review.SubjectID);
+            return View(review);
+        }
+        public ActionResult Menu(string dishType, string searchString)
         {
             ViewBag.Message = "Menu.";
+            var TypeL = new List<string>();
 
+            var TypeQry = from d in db.Dishes
+                          orderby d.Category
+                          select d.Category;
+
+            TypeL.AddRange(TypeQry.Distinct());
+            ViewBag.dishType = new SelectList(TypeL);
+            var dishes = from d in db.Dishes
+                         select d;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                dishes = dishes.Where(s => s.Name.Contains(searchString) || s.Description.Contains(searchString));
+            }
+            if (!string.IsNullOrEmpty(dishType))
+            {
+                dishes = dishes.Where(x => x.Category == dishType);
+            }
+            return View(dishes);
+        }
+        public ActionResult GetImageDish(int id)
+        {
+            Dishes dish = db.Dishes.FirstOrDefault(d => d.ID == id);
+            if (dish.Image != null) return File(dish.Image, "image/png");
             return View();
         }
-
-        public ActionResult Restaurants()
+        public ActionResult Restaurants(string searchString)
         {
             ViewBag.Message = "Restaurants.";
+            var rest = from m in db.Restaurant
+                         select m;
 
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                rest = rest.Where(s => s.Name.Contains(searchString)|| s.Description.Contains(searchString));
+            }
+            return View(rest);
+        }
+        public ActionResult GetImageRest(int id)
+        {
+            Restaurant rest = db.Restaurant.FirstOrDefault(d => d.Id == id);
+            if (rest.Image != null) return File(rest.Image, "image/png");
             return View();
         }
         public ActionResult Cart()
