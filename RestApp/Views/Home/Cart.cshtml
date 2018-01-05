@@ -26,8 +26,18 @@
             <tr>
                 <td data-th="Product">
                     <div class="row">
+<<<<<<< HEAD
                         <div class="col-sm-4 hidden-xs"><img src="@Url.Action("GetImageDish", new { id =item.DishID})" /></div>
                         <div class="col-sm-8">
+=======
+<<<<<<< HEAD
+                        <div class="col-sm-4 hidden-xs"><img src="@Url.Action("GetImageDish", new { id =item.DishID})" /></div>
+                        <div class="col-sm-8">
+=======
+                        <div class="col-sm-2 hidden-xs"><img src="@Url.Action("GetImageDish", new { id =item.DishID})" /></div>
+                        <div class="col-sm-10">
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
+>>>>>>> 60fab436835cd875461849f0d629c0c8ea5ecf2e
                             <h4 class="nomargin">@Html.DisplayFor(modelItem => item.Dishes.Name)</h4>
                             <p>@Html.DisplayFor(modelItem => item.Dishes.Description)</p>
                         </div>
@@ -42,7 +52,15 @@
                   {
                     @Html.AntiForgeryToken()*@  
                       <button type="button" class="btn btn-default btn-circle">
+<<<<<<< HEAD
                         @Html.ActionLink("X", "Delete", "Home", new { idD = item.Id }, "")
+=======
+<<<<<<< HEAD
+                        @Html.ActionLink("X", "Delete", "Home", new { idD = item.Id }, "")
+=======
+                        <span class="glyphicon glyphicon-remove">@Html.ActionLink(" ", "Delete", "Home", new { id = item.Id }, "")</span>
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
+>>>>>>> 60fab436835cd875461849f0d629c0c8ea5ecf2e
                     </button>
     
                   @*}*@
@@ -51,17 +69,39 @@
         </tbody>
 }
         <tfoot>
+<<<<<<< HEAD
             @*<tr class="visible-xs">
                 <td class="text-center"><strong>Total  @ViewBag.Subtotal</strong></td>
             </tr>*@
+=======
+<<<<<<< HEAD
+            @*<tr class="visible-xs">
+                <td class="text-center"><strong>Total  @ViewBag.Subtotal</strong></td>
+            </tr>*@
+=======
+            <tr class="visible-xs">
+                <td class="text-center"><strong>Total  @ViewBag.Subtotal</strong></td>
+            </tr>
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
+>>>>>>> 60fab436835cd875461849f0d629c0c8ea5ecf2e
 
             <tr>
                 <td><button class="btn" href="#"><i class="fa fa-angle-left"></i>@Html.ActionLink("Continue Shopping", "Menu", "Home")</button></td>
                 <td colspan="2" class="hidden-xs"></td>
                 <td class="hidden-xs text-center"><strong>Total @ViewBag.Subtotal $</strong></td>
+<<<<<<< HEAD
                 <td><button class="btn" href="#">@*@Html.ActionLink("Checkout", "Checkout", "Home")*@ 
                         <p class="btn">  @Html.ActionLink("Checkout", "Checkout")
                         </p><i class="fa fa-angle-right"></i></button></td>
+=======
+<<<<<<< HEAD
+                <td><button class="btn" href="#">@*@Html.ActionLink("Checkout", "Checkout", "Home")*@ 
+                        <p class="btn">  @Html.ActionLink("Checkout", "Checkout")
+                        </p><i class="fa fa-angle-right"></i></button></td>
+=======
+                <td><button class="btn" href="#">Checkout <i class="fa fa-angle-right"></i></button></td>
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
+>>>>>>> 60fab436835cd875461849f0d629c0c8ea5ecf2e
             </tr>
         </tfoot>
     </table>

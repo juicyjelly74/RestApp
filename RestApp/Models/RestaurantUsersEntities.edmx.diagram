@@ -16,9 +16,24 @@
         <EntityTypeShape EntityType="UserDatabaseModel.Order" Width="1.5" PointX="7" PointY="3.375" />
         <AssociationConnector Association="UserDatabaseModel.FK_DishID" />
         <AssociationConnector Association="UserDatabaseModel.FK_UserID" />
+<<<<<<< HEAD
         <EntityTypeShape EntityType="UserDatabaseModel.Card" Width="1.5" PointX="9.5" PointY="1.875" />
         <AssociationConnector Association="UserDatabaseModel.FK_DishID_Card" />
         <AssociationConnector Association="UserDatabaseModel.FK_UserID_Card" />
+=======
+<<<<<<< HEAD
+        <EntityTypeShape EntityType="UserDatabaseModel.Card" Width="1.5" PointX="9.5" PointY="1.875" />
+        <AssociationConnector Association="UserDatabaseModel.FK_DishID_Card" />
+        <AssociationConnector Association="UserDatabaseModel.FK_UserID_Card" />
+=======
+<<<<<<< HEAD
+        <EntityTypeShape EntityType="UserDatabaseModel.Card" Width="1.5" PointX="9.5" PointY="1.875" />
+        <AssociationConnector Association="UserDatabaseModel.FK_DishID_Card" />
+        <AssociationConnector Association="UserDatabaseModel.FK_UserID_Card" />
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
+>>>>>>> 60fab436835cd875461849f0d629c0c8ea5ecf2e
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

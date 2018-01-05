@@ -152,7 +152,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\CardsController.cs" />
+=======
+<<<<<<< HEAD
+    <Compile Include="Controllers\CardsController.cs" />
+=======
+<<<<<<< HEAD
+    <Compile Include="Controllers\CardsController.cs" />
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
+>>>>>>> 60fab436835cd875461849f0d629c0c8ea5ecf2e
     <Compile Include="Controllers\DishesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -162,9 +173,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\Card.cs">
       <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
     </Compile>
+=======
+<<<<<<< HEAD
+    <Compile Include="Models\Card.cs">
+      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
+    </Compile>
+=======
+<<<<<<< HEAD
+    <Compile Include="Models\Card.cs">
+      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
+    </Compile>
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
+>>>>>>> 60fab436835cd875461849f0d629c0c8ea5ecf2e
     <Compile Include="Models\Dish.cs" />
     <Compile Include="Models\Dishes.cs">
       <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
@@ -342,13 +368,30 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
+>>>>>>> 60fab436835cd875461849f0d629c0c8ea5ecf2e
     <Content Include="Views\Cards\Create.cshtml" />
     <Content Include="Views\Cards\Delete.cshtml" />
     <Content Include="Views\Cards\Details.cshtml" />
     <Content Include="Views\Cards\Edit.cshtml" />
     <Content Include="Views\Cards\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\Checkout_.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
+=======
+<<<<<<< HEAD
+    <Content Include="Views\Home\Checkout_.cshtml" />
+    <Content Include="Views\Home\Checkout.cshtml" />
+=======
+=======
+>>>>>>> 37ac259853cd76324eb10961301b6fa27f4b9d97
+>>>>>>> 42036f8a51e1ace60730c5a4b444b77eabfdcca3
+>>>>>>> 60fab436835cd875461849f0d629c0c8ea5ecf2e
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\desserts\" />
