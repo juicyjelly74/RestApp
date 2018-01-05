@@ -47,10 +47,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -150,9 +152,31 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CardsController.cs" />
+    <Compile Include="Controllers\DishesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ReservationsController.cs" />
+    <Compile Include="Controllers\RestaurantsController.cs" />
+    <Compile Include="Controllers\ReviewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Card.cs">
+      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dish.cs" />
+    <Compile Include="Models\Dishes.cs">
+      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reservation.cs">
+      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Restaurant.cs">
+      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RestaurantUsersEntities.Context.cs">
       <AutoGen>True</AutoGen>
@@ -170,6 +194,12 @@
       <DependentUpon>RestaurantUsersEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Restaurant_Users.cs">
+      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Review.cs">
+      <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subject.cs">
       <DependentUpon>RestaurantUsersEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -236,6 +266,7 @@
       <DependentUpon>RestaurantUsersEntities.edmx</DependentUpon>
       <LastGenOutput>RestaurantUsersEntities.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\RestaurantUsersEntities.edmx.sql" />
     <Content Include="Models\RestaurantUsersEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RestaurantUsersEntities.edmx</DependentUpon>
@@ -286,6 +317,36 @@
     <Content Include="Views\Home\ReservationCompleted.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Dishes\Create.cshtml" />
+    <Content Include="Views\Dishes\Delete.cshtml" />
+    <Content Include="Views\Dishes\Details.cshtml" />
+    <Content Include="Views\Dishes\Edit.cshtml" />
+    <Content Include="Views\Dishes\Index.cshtml" />
+    <Content Include="Views\Restaurants\Create.cshtml" />
+    <Content Include="Views\Restaurants\Delete.cshtml" />
+    <Content Include="Views\Restaurants\Details.cshtml" />
+    <Content Include="Views\Restaurants\Edit.cshtml" />
+    <Content Include="Views\Restaurants\Index.cshtml" />
+    <Content Include="Views\Reservations\Create.cshtml" />
+    <Content Include="Views\Reservations\Delete.cshtml" />
+    <Content Include="Views\Reservations\Details.cshtml" />
+    <Content Include="Views\Reservations\Edit.cshtml" />
+    <Content Include="Views\Reservations\Index.cshtml" />
+    <Content Include="Views\Reviews\Create.cshtml" />
+    <Content Include="Views\Reviews\Delete.cshtml" />
+    <Content Include="Views\Reviews\Details.cshtml" />
+    <Content Include="Views\Reviews\Edit.cshtml" />
+    <Content Include="Views\Reviews\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Cards\Create.cshtml" />
+    <Content Include="Views\Cards\Delete.cshtml" />
+    <Content Include="Views\Cards\Details.cshtml" />
+    <Content Include="Views\Cards\Edit.cshtml" />
+    <Content Include="Views\Cards\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\desserts\" />

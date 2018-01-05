@@ -74,7 +74,11 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("HOME", "Index", "Home")</li>
                     <li>@Html.ActionLink("ABOUT", "About", "Home")</li>
-                    <li>@Html.ActionLink("MENU", "Menu", "Home")</li>
+                    @{
+                        var routeValues = new RouteValueDictionary();
+                        routeValues.Add("dishType", "Dinner");
+                    }
+                    <li>@Html.ActionLink("MENU", "Menu", "Home", routeValues)</li>
                     <li>@Html.ActionLink("RESTAURANTS", "Restaurants", "Home")</li>
                     <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
                 </ul>

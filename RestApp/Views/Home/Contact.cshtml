@@ -1,4 +1,5 @@
-﻿@{
+﻿@model RestApp.Models.Review
+@{
     ViewBag.Title = "Contact";
 }
 <div class="main-image">
@@ -19,7 +20,8 @@
             Please feel free to contact us with any questions or to make reservations. If no one is available to take your call, please leave a message. We will contact you as soon as possible.
         </p>
     </div>
-    <div class="col-md-8">
+    
+    @*<div class="col-md-8">
         <div class="your-class">
             <label for="usr">First name: </label>
             <input type="text" class="custom-form-input contact" width="40">
@@ -49,7 +51,68 @@
             <input type="text" class="custom-form-input contact" width="50">
             <button class="btn" onclick="@("window.location.href='" + @Url.Action("Thank", "Home") + "'");">SEND</button>
         </div>
+    </div>*@
+
+
+@using (Html.BeginForm(Html.BeginForm("Contact", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-8">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubjectID, "SubjectID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SubjectID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SubjectID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="SEND" class="btn" />
+            </div>
+        </div>
     </div>
+}
+
+
+
     <div class="col-md-4">
         <strong>CONTACT DETAILS:</strong>
 
