@@ -5,7 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ae4a1eccd43e4e90897e624ba779f8df" Name="Diagram1">
-        <EntityTypeShape EntityType="UserDatabaseModel.Restaurant_Users" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UserDatabaseModel.Restaurant_Users" Width="1.5" PointX="1" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UserDatabaseModel.Dishes" Width="1.5" PointX="2.75" PointY="0.5" />
+        <EntityTypeShape EntityType="UserDatabaseModel.Restaurant" Width="1.5" PointX="4.5" PointY="0.5" />
+        <EntityTypeShape EntityType="UserDatabaseModel.Review" Width="1.5" PointX="4.5" PointY="2.625" />
+        <EntityTypeShape EntityType="UserDatabaseModel.Reservation" Width="1.5" PointX="6.75" PointY="0.5" />
+        <AssociationConnector Association="UserDatabaseModel.FK_RestID1" />
+        <EntityTypeShape EntityType="UserDatabaseModel.Subject" Width="1.5" PointX="2.125" PointY="3" />
+        <AssociationConnector Association="UserDatabaseModel.FK_SubjID" />
+        <EntityTypeShape EntityType="UserDatabaseModel.Order" Width="1.5" PointX="7" PointY="3.375" />
+        <AssociationConnector Association="UserDatabaseModel.FK_DishID" />
+        <AssociationConnector Association="UserDatabaseModel.FK_UserID" />
+        <EntityTypeShape EntityType="UserDatabaseModel.Card" Width="1.5" PointX="9.5" PointY="1.875" />
+        <AssociationConnector Association="UserDatabaseModel.FK_DishID_Card" />
+        <AssociationConnector Association="UserDatabaseModel.FK_UserID_Card" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

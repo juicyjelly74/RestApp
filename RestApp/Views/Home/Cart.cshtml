@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<RestApp.Models.Card>
+@{
+    ViewBag.Title = "Card";
 }
 <div class="main-image">
     <div class="main-image-content">
@@ -10,47 +11,57 @@
 
 <div class="container">
     <table id="cart" class="table table-condensed">
-        <thead>
+        <thead class="main-page-preheader">
             <tr>
-                <th style="width:50%">Product</th>
-                <th style="width:10%">Price</th>
-                <th style="width:8%">Quantity</th>
-                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:80%">Product</th>
+                <th style="width:18%">Price</th>
+                <th style="width:12%">Quantity</th>
+                @*<th style="width:22%" class="text-center">Subtotal</th>*@
                 <th style="width:10%"></th>
             </tr>
         </thead>
+@foreach (var item in Model)
+{
         <tbody>
             <tr>
                 <td data-th="Product">
                     <div class="row">
-                        <div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive" /></div>
-                        <div class="col-sm-10">
-                            <h4 class="nomargin">Chicken wing</h4>
-                            <p>It’s all about flavour and fun, fun, fun. Toss fried chicken with a finger-licking sauce spiked with chilli and fresh ginger.</p>
+                        <div class="col-sm-4 hidden-xs"><img src="@Url.Action("GetImageDish", new { id =item.DishID})" /></div>
+                        <div class="col-sm-8">
+                            <h4 class="nomargin">@Html.DisplayFor(modelItem => item.Dishes.Name)</h4>
+                            <p>@Html.DisplayFor(modelItem => item.Dishes.Description)</p>
                         </div>
                     </div>
                 </td>
-                <td data-th="Price">$1.99</td>
+                <td data-th="Price">@Html.DisplayFor(modelItem => item.Dishes.Price) $</td>
                 <td data-th="Quantity">
-                    <input type="number" class="form-control text-center" value="1">
+                    @Html.DisplayFor(modelItem => item.Ammount)
                 </td>
-                <td data-th="Subtotal" class="text-center">1.99</td>
                 <td class="actions" data-th="">
-                    <button type="button" class="btn btn-default btn-circle">
-                        <span class="glyphicon glyphicon-remove"></span>
+                  @*@using (Html.BeginForm(Html.BeginForm("Delete", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })))
+                  {
+                    @Html.AntiForgeryToken()*@  
+                      <button type="button" class="btn btn-default btn-circle">
+                        @Html.ActionLink("X", "Delete", "Home", new { idD = item.Id }, "")
                     </button>
+    
+                  @*}*@
                 </td>
             </tr>
         </tbody>
+}
         <tfoot>
-            <tr class="visible-xs">
-                <td class="text-center"><strong>Total 1.99</strong></td>
-            </tr>
+            @*<tr class="visible-xs">
+                <td class="text-center"><strong>Total  @ViewBag.Subtotal</strong></td>
+            </tr>*@
+
             <tr>
-                <td><button class="btn" href="#"><i class="fa fa-angle-left"></i> Continue Shopping</button></td>
+                <td><button class="btn" href="#"><i class="fa fa-angle-left"></i>@Html.ActionLink("Continue Shopping", "Menu", "Home")</button></td>
                 <td colspan="2" class="hidden-xs"></td>
-                <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-                <td><button class="btn" href="#">Checkout <i class="fa fa-angle-right"></i></button></td>
+                <td class="hidden-xs text-center"><strong>Total @ViewBag.Subtotal $</strong></td>
+                <td><button class="btn" href="#">@*@Html.ActionLink("Checkout", "Checkout", "Home")*@ 
+                        <p class="btn">  @Html.ActionLink("Checkout", "Checkout")
+                        </p><i class="fa fa-angle-right"></i></button></td>
             </tr>
         </tfoot>
     </table>
